@@ -114,3 +114,4 @@ MonoBehaviour:
   xAnimValue: -0.5
   zAnimValue: -0.5
   initialAnimationDuration: 0.2
+  oxygenProduceFactor: 1

@@ -6,15 +6,37 @@ namespace Game.Controllers
 {
     public abstract class BaseTreeController : MonoBehaviour
     {  
-        [Header("Animations")]
+        [Header("Animations"), Space]
         [SerializeField] private float xAnimValue = -0.5f;
         [SerializeField] private float zAnimValue = -0.5f;
         [SerializeField] private float initialAnimationDuration = 0.2f;
+
+        [Header("Oxygen Produce Factor"), Space] 
+        [SerializeField] protected float oxygenProduceFactor;
+        
+        private OxygenController _oxygenController;
+
+        public OxygenController OxygenController => _oxygenController;
+
+        private void Awake()
+        {
+            _oxygenController = FindObjectOfType<OxygenController>();
+        }
 
         private void Start()
         {
             transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, zAnimValue), initialAnimationDuration)
                 .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
+        }
+
+        private void Update()
+        {
+            MakeOxygen();
+        }
+
+        protected void MakeOxygen()
+        {
+            OxygenController.IncreaseOxygenAmount(oxygenProduceFactor);
         }
     }
 }
