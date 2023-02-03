@@ -15,7 +15,6 @@ namespace Game.Enemy
 
         private void Start()
         {
-            waveController.SpawnEnemy(10);
         }
 
 
