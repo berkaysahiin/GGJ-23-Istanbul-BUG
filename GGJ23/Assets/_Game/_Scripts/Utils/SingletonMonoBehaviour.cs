@@ -72,6 +72,7 @@ namespace Game.Utils
 
 		protected bool SetupInstance(bool persistOnLoad = true)
 		{
+			transform.SetParent(null);
 			if (instance != null && instance != this)
 			{
 				// Another instance present
