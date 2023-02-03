@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ef4b4816b86064db76e2ba22dd2917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardMovement:
-    cardMovement: 0.1
+  cardMovement:
+    cardMovement: 20
     cardDuration: 1
   cardScriptableObject: {fileID: 11400000, guid: 64332e0eb951c884a8b97dc57af1c1c9,
     type: 2}

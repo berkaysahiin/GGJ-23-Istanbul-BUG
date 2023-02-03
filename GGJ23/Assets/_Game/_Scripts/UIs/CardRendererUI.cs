@@ -23,8 +23,18 @@ namespace Game.UIs
             for (int i = 0; i < cardDetails.cardAmount; i++)
             {
                 SetupCardDeck();
-                SetupCardRotations(CardManager.Instance.Cards.Count);
-                SetupCardPositions(CardManager.Instance.Cards.Count);
+                SetupCardRotations(i);
+                SetupCardPositions(i);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SetupCardDeck();
+                SetupCardRotations(CardManager.Instance.Cards.Count - 1);
+                SetupCardPositions(CardManager.Instance.Cards.Count - 1);
             }
         }
 
@@ -45,28 +55,27 @@ namespace Game.UIs
 
         private void SetupCardRotations(int index)
         {
-            Debug.Log("TOTAL CARDS: " + CardManager.Instance.Cards.Count);
-            for (int i = 0; i < index; i++)
-            {
-                var card = CardManager.Instance.Cards[i];
-                float zRotate = (cardDetails.initialRotation - i * cardDetails.rotationGap);
+            var cardTransform = CardManager.Instance.Cards[index];
 
-                var cardTransform = card.transform;
-                card.transform.localRotation = Quaternion.Euler(new Vector3(cardTransform.localRotation.x, cardTransform.localRotation.y, zRotate));
-            }
+            var cardRotation = cardTransform.transform.localEulerAngles;
+            cardRotation.z = CardRotation(index);
+            cardTransform.transform.localEulerAngles = cardRotation;
+            
         }
 
         private void SetupCardPositions(int index)
         {
-            for (int i = 0; i < index; i++)
-            {
-                var card = CardManager.Instance.Cards[i];
-                float xPosition = (cardDetails.positionGap * i);
+            var card = CardManager.Instance.Cards[index];
+            float xPosition = (cardDetails.positionGap * index);
 
-                var cardTransform = card.transform;
+            var cardTransform = card.transform;
 
-                cardTransform.localPosition = new Vector3(xPosition, cardTransform.localPosition.y, cardTransform.localPosition.z);
-            }
+            cardTransform.localPosition = new Vector3(xPosition, cardTransform.localPosition.y, cardTransform.localPosition.z);
+        }
+
+        private float CardRotation(int index)
+        {
+            return (cardDetails.initialRotation - index * cardDetails.rotationGap);
         }
     }
 }

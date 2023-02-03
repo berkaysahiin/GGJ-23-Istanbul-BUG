@@ -1,3 +1,5 @@
+using System;
+using Game.Managers;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -23,13 +25,20 @@ namespace Game.UIs
 
         protected override void SpawnEntity()
         {
-            _mousePosition = Input.mousePosition;
-            
-            Ray ray = _camera.ScreenPointToRay(_mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, layerMask))
+            try
             {
-                Instantiate(CardScriptableObject.card, hit.point + CardScriptableObject.spawnOffset, quaternion.identity);
+                _mousePosition = Input.mousePosition;
+                CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
+                Ray ray = _camera.ScreenPointToRay(_mousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hit, layerMask))
+                {
+                    Instantiate(CardScriptableObject.card, hit.point + CardScriptableObject.spawnOffset, quaternion.identity);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Warning: " + e.Message);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Game.UIs
     
     public abstract class CardButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private CardMovement _cardMovement;
+        [SerializeField] private CardMovement cardMovement;
         [SerializeField] private CardScriptableObject cardScriptableObject;
         public CardScriptableObject CardScriptableObject => cardScriptableObject;
 
@@ -37,7 +37,7 @@ namespace Game.UIs
 
         protected virtual void Start()
         {
-            MoveCard(transform.up, _cardMovement.cardMovement, _cardMovement.cardDuration);
+            MoveCard(transform.up, cardMovement.cardMovement, cardMovement.cardDuration);
         }
 
         public void SetupCardInfos(CardButtonUI cardButtonUI)
@@ -50,12 +50,12 @@ namespace Game.UIs
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            MoveCard(transform.up, _cardMovement.cardMovement, _cardMovement.cardDuration);
+            MoveCard(transform.up, cardMovement.cardMovement, cardMovement.cardDuration);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            MoveCard(transform.up * -1, _cardMovement.cardMovement, _cardMovement.cardDuration);
+            MoveCard(transform.up * -1, cardMovement.cardMovement, cardMovement.cardDuration);
         }
 
         private void MoveCard(Vector3 direction, float movementSpeed, float duration)
