@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Game.Controllers;
 using Game.Managers;
 using Game.ScriptableObjects;
 using TMPro;
@@ -28,6 +29,8 @@ namespace Game.UIs
         private TextMeshProUGUI _oxygenCount;
         private Image _cardImage;
 
+        private bool IsCardSelectable => cardScriptableObject.oxygenCount < OxygenController.OxygenAmount;
+        
         private void Awake()
         {            
             _cardName    = GetComponentsInChildren<TextMeshProUGUI>()[0];
@@ -38,6 +41,18 @@ namespace Game.UIs
         protected virtual void Start()
         {
             MoveCard(transform.up, cardMovement.cardMovement, cardMovement.cardDuration);
+        }
+
+        private void Update()
+        {
+            if (IsCardSelectable)
+            {
+                GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                GetComponent<Button>().interactable = false;
+            }
         }
 
         public void SetupCardInfos(CardButtonUI cardButtonUI)
@@ -60,7 +75,8 @@ namespace Game.UIs
 
         private void MoveCard(Vector3 direction, float movementSpeed, float duration)
         {
-            transform.DOLocalMove((transform.localPosition + direction * movementSpeed), duration);
+            if(IsCardSelectable)
+                transform.DOLocalMove((transform.localPosition + direction * movementSpeed), duration);
         }
 
         public void DraggingStart()
@@ -70,9 +86,12 @@ namespace Game.UIs
 
         public void SelectionOver()
         {
-            _isDragging = false;
-            CardManager.Instance.Cards.Remove(this);
-            Destroy(this.gameObject);
+            if (IsCardSelectable)
+            {
+                _isDragging = false;
+                CardManager.Instance.Cards.Remove(this);
+                Destroy(this.gameObject);
+            }
         }
 
         protected abstract void SpawnEntity();

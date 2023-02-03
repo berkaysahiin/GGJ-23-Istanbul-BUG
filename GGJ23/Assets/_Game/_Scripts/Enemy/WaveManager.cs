@@ -32,8 +32,6 @@ namespace Game.Enemy
             for (var i = 0; i < waves.Count; i++)
             {
                 var wave = waves[i];
-                
-                wave.StartWave(i);
 
                 if (wave.IsWaveFinished)
                 {

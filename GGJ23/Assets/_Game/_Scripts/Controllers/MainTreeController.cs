@@ -4,6 +4,9 @@ namespace Game.Controllers
 {
     public class MainTreeController : BaseTreeController, IEntityController
     {
-        
+        protected override void Start()
+        {
+            
+        }
     }
 }

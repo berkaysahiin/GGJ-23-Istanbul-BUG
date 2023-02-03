@@ -23,10 +23,11 @@ namespace Game.Controllers
             _oxygenController = FindObjectOfType<OxygenController>();
         }
 
-        private void Start()
-        {
+        protected virtual void Start()
+        {   
             transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, zAnimValue), initialAnimationDuration)
-                .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
+            .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
+
         }
 
         private void Update()
