@@ -1,4 +1,5 @@
 using System;
+using Game.Managers;
 using UnityEngine;
 
 namespace Game.Controllers
@@ -21,6 +22,11 @@ namespace Game.Controllers
         protected override void Update()
         {
             base.Update();
+            if (spawnedVfx == null)
+            {
+                GameManager.Instance.LoseGame();
+                return;
+            }
             spawnedVfx.GetComponentsInChildren<Transform>()[2].transform.position = transform.position;
         }
     }

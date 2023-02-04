@@ -17,7 +17,10 @@ namespace Game
 
         private void Update()
         {
-            _navMesh.SetDestination(FindObjectOfType<EnemyController>().transform.position);
+            var enemy = FindObjectOfType<EnemyController>();
+            if(enemy == null) return;
+            
+            _navMesh.SetDestination(enemy.transform.position);
 
             if (LevelManager.Instance.isNight)
             {
@@ -35,7 +38,8 @@ namespace Game
             if (other.gameObject.tag.Equals("Enemy"))
             {
                 Destroy(other.gameObject);
-                Destroy(this.gameObject);
+                GetComponent<Animator>().SetBool("explode", true);
+                Destroy(this.gameObject, 0.8f);
             }
         }
     }

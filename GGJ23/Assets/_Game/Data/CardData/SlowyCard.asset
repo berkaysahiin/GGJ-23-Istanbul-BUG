@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: SlowyCard
   m_EditorClassIdentifier: 
   cardName: Slowy Tree
-  cardSprite: {fileID: 960331645040201441, guid: ab7886800259b084a9dc564c2197c2cf,
-    type: 3}
+  cardSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   card: {fileID: 6698638017461663542, guid: 8a1316bc4d4e6b54abb9141c3cbbb985, type: 3}
   description: "Tree Card\t\t"
   oxygenCount: 20

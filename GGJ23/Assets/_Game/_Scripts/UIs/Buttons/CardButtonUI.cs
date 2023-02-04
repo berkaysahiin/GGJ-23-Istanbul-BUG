@@ -29,6 +29,8 @@ namespace Game.UIs
         private TextMeshProUGUI _oxygenCount;
         private Image _cardImage;
 
+        private Vector3 initialVector;
+
         
         private bool IsCardSelectable => cardScriptableObject.oxygenCount < OxygenController.OxygenAmount;
         
@@ -41,7 +43,7 @@ namespace Game.UIs
 
         protected virtual void Start()
         {
-            MoveCard(transform.up, cardMovement.cardMovement, cardMovement.cardDuration);
+            MoveCard(initialVector, cardMovement.cardMovement, cardMovement.cardDuration);
         }
 
         protected virtual void Update()
@@ -76,9 +78,19 @@ namespace Game.UIs
 
         private void MoveCard(Vector3 direction, float movementSpeed, float duration)
         {
-            if(IsCardSelectable)
+            if (IsCardSelectable)
+            {
                 transform.DOLocalMove((transform.localPosition + direction * movementSpeed), duration);
+            }
         }
+        
+        // private void MoveCard(Vector3 dir, float pos, float duration)
+        // {
+        //     if (IsCardSelectable)
+        //     {
+        //         transform.DOLocalMoveY(pos, duration);
+        //     }
+        // }
 
         public void DraggingStart()
         {

@@ -7,6 +7,7 @@ namespace Game.Managers
 {
     public class GameManager : SingletonMonoBehaviour<GameManager>
     {
+        [SerializeField] private GameObject gameOverPanel;
         private void Awake()
         {
             SetupInstance();
@@ -26,25 +27,15 @@ namespace Game.Managers
 
         public void LoseGame()
         {
-            // game over ekranı aktif olacak
-            // 3 saniye geçtikten sonra main menüye atsın
-            //Debug.Log("GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //StartCoroutine(ReturnToMainMenu());
-            this.LoadSceneByIndex(0);
-        }
-
-        public void Quit() 
-        {
-            Application.Quit();
+            if (gameOverPanel == null) return;
+            StartCoroutine(ReturnToMainMenu());
         }
 
         private IEnumerator ReturnToMainMenu()
         {
+            gameOverPanel.SetActive(true);
             yield return new WaitForSeconds(3);
             this.LoadSceneByIndex(0);
         }
-
-
-
     }
 }
