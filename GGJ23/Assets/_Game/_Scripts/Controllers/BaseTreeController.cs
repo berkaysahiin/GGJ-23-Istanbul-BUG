@@ -11,7 +11,7 @@ namespace Game.Controllers
         [SerializeField] private float xAnimValue = -0.5f;
         [SerializeField] private float zAnimValue = -0.5f;
         [SerializeField] private float initialAnimationDuration = 0.2f;
-
+        
         [Header("Oxygen Produce Factor"), Space] 
         [SerializeField] protected float oxygenProduceFactor;
         
@@ -31,12 +31,12 @@ namespace Game.Controllers
 
         protected virtual void Start()
         {   
-            transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, zAnimValue), initialAnimationDuration)
-            .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
+            transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, transform.localScale.z), initialAnimationDuration)
+                .OnComplete(() => transform.DOScale(new Vector3(.2f, transform.localScale.y, .2f), 1.0f));
 
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             MakeOxygen();
         }
