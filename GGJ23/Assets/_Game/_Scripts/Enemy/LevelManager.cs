@@ -13,11 +13,13 @@ namespace Game.Enemy
         private float nightLength => 10;
         private float sinceNight;
 
+        [SerializeField] Light light;
 
         private void Awake()
         {
             _waveManager = FindObjectOfType<WaveManager>();
             _dayCycleController = FindObjectOfType<DayCycleController>();
+            light = FindObjectOfType<Light>();
         }
 
         private void Update() 
@@ -29,10 +31,11 @@ namespace Game.Enemy
                 if(sinceNight > nightLength) {
                     NewDay();
                 }
-
+                light.intensity = 0.20f;
             }
 
             if(isDay) {
+                light.intensity = 1;
                 sinceNight = 0;
             }
 
