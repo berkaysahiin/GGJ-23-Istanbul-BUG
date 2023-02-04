@@ -16,7 +16,7 @@ namespace Game.Enemy
     public bool IsDead => _health <= 0;
     public bool IsFeared => LevelManager.Instance.isNight;
 
-    public BaseTreeController  target { get; set; }
+    public BaseTreeController target { get; set; }
 
     private void Awake()
     {

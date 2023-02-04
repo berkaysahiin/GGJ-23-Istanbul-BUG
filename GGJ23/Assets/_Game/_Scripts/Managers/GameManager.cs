@@ -33,6 +33,11 @@ namespace Game.Managers
             this.LoadSceneByIndex(0);
         }
 
+        public void Quit() 
+        {
+            Application.Quit();
+        }
+
         private IEnumerator ReturnToMainMenu()
         {
             yield return new WaitForSeconds(3);
