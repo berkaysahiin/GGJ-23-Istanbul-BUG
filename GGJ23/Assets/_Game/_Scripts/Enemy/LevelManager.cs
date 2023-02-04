@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 namespace Game.Enemy
 {
@@ -8,42 +7,38 @@ namespace Game.Enemy
         public bool isDay => !_dayCycleController.dayFinished;
         public bool isNight => _dayCycleController.dayFinished;
 
-        public Action OnDay;
-        public Action OnNight;
-
         private WaveManager _waveManager;
         private DayCycleController _dayCycleController;
         private int _dayCount = 1;
-        private Light _light;
+        private float nightLength => 10;
+        private float sinceNight;
 
-        private void Start()
-        {
-            NewDay();
-        }
 
         private void Awake()
         {
             _waveManager = FindObjectOfType<WaveManager>();
             _dayCycleController = FindObjectOfType<DayCycleController>();
-            _light = FindObjectOfType<Light>();
         }
 
         private void Update() 
         {
             _waveManager.HandleDay(_dayCycleController);
+
+            if(isNight) {
+                sinceNight += Time.deltaTime;
+                if(sinceNight > nightLength) {
+                    NewDay();
+                }
+
+            }
+
+            if(isDay) {
+                sinceNight = 0;
+            }
+
                 
-            if(isDay) 
-            {
-                _light.intensity = 1;
-                OnDay?.Invoke();
-                Debug.Log("Day");
-            }
-            else
-            {
-                _light.intensity = 0.20f;
-                OnNight?.Invoke();
-                Debug.Log("Night");
-            }
+            print(sinceNight);
+            Debug.Log("isDay " + isDay);
         }
 
         public void NewDay()
