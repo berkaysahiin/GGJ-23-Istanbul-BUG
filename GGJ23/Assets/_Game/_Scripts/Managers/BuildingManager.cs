@@ -38,7 +38,6 @@ namespace Game.Managers
             }
         }
 
-
         private void FixedUpdate()
         {
             SetObjectPosition();
@@ -51,7 +50,8 @@ namespace Game.Managers
             
             if (Physics.Raycast(ray, out _hit, layer))
             {
-                if (_hit.transform.gameObject.GetComponent<BaseTreeController>() != null)
+                if (_hit.transform.gameObject.GetComponent<BaseTreeController>() != null ||
+                    _hit.transform.gameObject.GetComponent<MushroomHouseController>() != null)
                 {
                     return;
                 }
@@ -73,9 +73,6 @@ namespace Game.Managers
         {
             CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
             _oxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
-            
-          
-            
             _pendingObject = null;
         }
         

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22b13ba93b05d5b41abbef31cd5b4f7f, type: 3}
-  m_Name: SlowyCard
+  m_Name: MushroomCard
   m_EditorClassIdentifier: 
-  cardName: Slowy Tree
-  cardSprite: {fileID: 960331645040201441, guid: ab7886800259b084a9dc564c2197c2cf,
-    type: 3}
-  card: {fileID: 6698638017461663542, guid: 8a1316bc4d4e6b54abb9141c3cbbb985, type: 3}
-  description: "Tree Card\t\t"
-  oxygenCount: 20
+  cardName: Mushroom
+  cardSprite: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
+  card: {fileID: 740239752381887255, guid: 113b7d52664456644a05b47e28d6ee04, type: 3}
+  description: Mushroom House
+  oxygenCount: 10
   spawnOffset: {x: 0, y: 0.2, z: 0}

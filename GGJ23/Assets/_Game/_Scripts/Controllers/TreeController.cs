@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Controllers
@@ -7,13 +8,19 @@ namespace Game.Controllers
         protected override void Start()
         {
             base.Start();
-            spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            try
+            {
+                spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("E" + e.Message);
+            }
         }
 
         protected override void Update()
         {
             base.Update();
-
             spawnedVfx.GetComponentsInChildren<Transform>()[2].transform.position = transform.position;
         }
     }

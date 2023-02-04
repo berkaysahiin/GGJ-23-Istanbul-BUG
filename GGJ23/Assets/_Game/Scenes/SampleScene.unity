@@ -726,6 +726,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4021331892172091779, guid: 7ae18ce84a4d2104589e7dee5d8bd173,
+        type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 410087040}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae18ce84a4d2104589e7dee5d8bd173, type: 3}
 --- !u!4 &511688359 stripped
@@ -801,6 +806,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTree
       objectReference: {fileID: 0}
+    - target: {fileID: 3510102899457688127, guid: 60709913b6ae6a446a132de80c5c783a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7252620314616412052, guid: 860985e43d96d504792c8b3b1a6be86a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60709913b6ae6a446a132de80c5c783a, type: 3}
 --- !u!1 &527034778 stripped
@@ -1652,9 +1663,10 @@ MonoBehaviour:
     - {fileID: 3431705747670937526, guid: ae0839a628bf33f479d52792fdb0642b, type: 3}
     - {fileID: 2324417760555965356, guid: af61da5c359eb9d45846c295e9f2bc49, type: 3}
     - {fileID: -6148845814001102709, guid: c72a59bac82195644a7fcde2575dd3f0, type: 3}
+    - {fileID: 2324417760555965356, guid: 5e3e4bd90da924d4e80f88ea4ff8acbc, type: 3}
     rotationGap: 25
-    initialRotation: 60
-    cardAmount: 10
+    initialRotation: 90
+    cardAmount: 5
     positionGap: 0
 --- !u!1 &1873757924
 GameObject:

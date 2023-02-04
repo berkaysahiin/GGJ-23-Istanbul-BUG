@@ -8,6 +8,7 @@ namespace Game.Controllers
         protected override void Start()
         {
         }
+        
         protected override void Update()
         {
             base.Update();

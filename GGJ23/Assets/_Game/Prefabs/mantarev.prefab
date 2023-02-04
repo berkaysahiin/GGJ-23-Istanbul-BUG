@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3936664063985526280}
   - component: {fileID: 1244436409536205506}
   - component: {fileID: 6669934726574450196}
+  - component: {fileID: 5121075292374506472}
   m_Layer: 0
   m_Name: mantarev
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 740239752381887255}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.5, y: 0, z: 0}
-  m_LocalScale: {x: 1.5453813, y: 1.5453813, z: 1.5453813}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,3 +98,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7664633, y: 2.3211398, z: 3.7664633}
   m_Center: {x: 0.000000059604645, y: 1.1562841, z: -0.000000059604645}
+--- !u!114 &5121075292374506472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740239752381887255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a71adbcb99c5d041897f5565b887c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mushroom: {fileID: -6814462450601382601, guid: 645ed89d36b898746967bd3f6363908f,
+    type: 3}
