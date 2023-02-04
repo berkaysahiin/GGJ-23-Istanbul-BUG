@@ -5,10 +5,12 @@ namespace Game.Enemy
 {
     public class DayCycleController : MonoBehaviour
     {
-        public bool newWaveReady => !dayFinished && _sinceLastWave > waves.Peek().duration;
-        public bool dayFinished => waves.Count == 0;
+        public bool newWaveReady => !allWavesSpawned && _sinceLastWave > waves.Peek().duration;
+        public bool dayFinished => allWavesSpawned && _sinceLastWave > lastDuration;
+        public bool allWavesSpawned => waves.Count == 0;
         public Stack<Wave> waves = new Stack<Wave>();
         public float _sinceLastWave = 1000000;
+        private float lastDuration;
 
         public void Update()
         {
@@ -19,6 +21,7 @@ namespace Game.Enemy
         {
             if(!newWaveReady) return null;
             _sinceLastWave = 0;
+            lastDuration = waves.Peek().duration;
             return waves.Pop();
         }
 

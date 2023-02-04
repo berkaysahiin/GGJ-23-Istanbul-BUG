@@ -11,7 +11,6 @@ namespace Game.Enemy
         public Action OnDay;
         public Action OnNight;
 
-
         private WaveManager _waveManager;
         private DayCycleController _dayCycleController;
         private int _dayCount = 1;
@@ -32,17 +31,18 @@ namespace Game.Enemy
         private void Update() 
         {
             _waveManager.HandleDay(_dayCycleController);
-            
                 
             if(isDay) 
             {
                 _light.intensity = 1;
                 OnDay?.Invoke();
+                Debug.Log("Day");
             }
             else
             {
                 _light.intensity = 0.20f;
                 OnNight?.Invoke();
+                Debug.Log("Night");
             }
         }
 

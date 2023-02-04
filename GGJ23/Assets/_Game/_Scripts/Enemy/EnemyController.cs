@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Controllers;
+using DG.Tweening;
 
 namespace Game.Enemy
 {
@@ -10,6 +11,11 @@ namespace Game.Enemy
     public bool IsDead => _health <= 0;
 
     public BaseTreeController  target { get; set; }
+
+    private void Start()
+    {
+      target= GetClosestTree();
+    }
 
     public void DealDamage(IHealth health, float damage)
     {
@@ -30,12 +36,13 @@ namespace Game.Enemy
     public void Update()
     {
       if(IsDead) Destroy(this.gameObject);
-
+      transform.DOMove(target.transform.position, 10);
+      transform.LookAt(target.transform);
     }
 
     private BaseTreeController GetClosestTree()
     {
-      Collider[] colliders = Physics.OverlapSphere(transform.position, 20);
+      Collider[] colliders = Physics.OverlapSphere(transform.position, 40);
 
       float minDistance = float.MaxValue;
       BaseTreeController targetTree = null;
@@ -50,7 +57,6 @@ namespace Game.Enemy
         {
           targetTree = collider.GetComponent<BaseTreeController>();
         }
-
       }
 
       return targetTree;
@@ -58,7 +64,7 @@ namespace Game.Enemy
 
     public void OnDrawGizmos()
     {
-      Gizmos.DrawWireSphere(transform.position, 20);
+      Gizmos.DrawWireSphere(transform.position, 40);
     }
   }
 }
