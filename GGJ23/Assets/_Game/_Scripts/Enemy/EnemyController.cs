@@ -13,10 +13,8 @@ namespace Game.Enemy
     private Animator _animator;
     public bool IsDead => _health <= 0;
     public bool IsFeared => LevelManager.Instance.isNight;
-    private BaseTreeController _targetTree = null;
 
-
-    public Transform  target { get; set; }
+    public BaseTreeController  target { get; set; }
 
     private void Awake()
     {
@@ -42,13 +40,9 @@ namespace Game.Enemy
 
     public void Update()
     {
-      if(IsFeared)
-      {
-        target = GetClosestTree();
-        // SetTarget(Vector3.back * 100);
-      }
-      else {
-        target = GetClosestTree();
+      var target = GetClosestTree();
+      if(target == null) {
+        GameManager.Instance.LoseGame();
       }
 
       if(IsDead) Destroy(this.gameObject);
@@ -78,11 +72,12 @@ namespace Game.Enemy
       }
     }
 
-    private Transform GetClosestTree()
+    private BaseTreeController GetClosestTree()
     {
       Collider[] colliders = Physics.OverlapSphere(transform.position, 40);
 
       float minDistance = float.MaxValue;
+      BaseTreeController returnTree = null;
 
       foreach(var collider in colliders)
       {
@@ -93,16 +88,11 @@ namespace Game.Enemy
         if(distance < minDistance)
         {
           minDistance = distance;
-          _targetTree = collider.GetComponent<BaseTreeController>();
+          returnTree = collider.GetComponent<BaseTreeController>();
         }
       }
 
-      return _targetTree.transform;
-    }
-
-    public void SetTarget(Vector3 fearPoint)
-    {
-      target.position = fearPoint;
+      return returnTree;
     }
 
     public void OnDrawGizmos()

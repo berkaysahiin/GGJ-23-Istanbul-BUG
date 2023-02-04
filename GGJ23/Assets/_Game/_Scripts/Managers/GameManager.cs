@@ -28,8 +28,9 @@ namespace Game.Managers
         {
             // game over ekranı aktif olacak
             // 3 saniye geçtikten sonra main menüye atsın
-            Debug.Log("GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!");
-            StartCoroutine(ReturnToMainMenu());
+            //Debug.Log("GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //StartCoroutine(ReturnToMainMenu());
+            this.LoadSceneByIndex(0);
         }
 
         private IEnumerator ReturnToMainMenu()
