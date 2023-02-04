@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Game.Managers;
+using Game.UIs;
 using UnityEngine;
 using Game.Utils;
 
@@ -23,7 +25,7 @@ namespace Game.Enemy
         public void SpawnWave(Wave wave) 
         {
             if(wave is null) return;
-
+        
             print("new way in coming " + wave);
 
             List<Vector3> spawnPoints = _spawnController.GetRandomPoints(wave.totalEnemyCount);

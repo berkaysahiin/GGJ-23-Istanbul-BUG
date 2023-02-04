@@ -38,8 +38,8 @@ namespace Game.UIs
             }
         }
 
-        private void SetupCardDeck()
-        {
+        public void SetupCardDeck()
+        {   
             int randomIndex = Random.Range(0, cardDetails.cardButtons.Count);
             
             var cardGo = Instantiate(cardDetails.cardButtons[randomIndex].gameObject,
@@ -53,7 +53,7 @@ namespace Game.UIs
             cardButton.transform.SetParent(this.transform);
         }
 
-        private void SetupCardRotations(int index)
+        public void SetupCardRotations(int index)
         {
             var cardTransform = CardManager.Instance.Cards[index];
 
@@ -63,7 +63,7 @@ namespace Game.UIs
             
         }
 
-        private void SetupCardPositions(int index)
+        public void SetupCardPositions(int index)
         {
             var card = CardManager.Instance.Cards[index];
             float xPosition = (cardDetails.positionGap * index);

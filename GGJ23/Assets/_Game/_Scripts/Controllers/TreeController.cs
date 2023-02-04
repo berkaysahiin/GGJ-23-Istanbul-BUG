@@ -4,9 +4,6 @@ namespace Game.Controllers
 {
     public class TreeController : BaseTreeController, IEntityController
     {
-        [SerializeField] private GameObject rootVfx;
-        public GameObject spawnedVfx;
-
         protected override void Start()
         {
             base.Start();

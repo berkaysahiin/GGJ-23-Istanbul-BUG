@@ -23,7 +23,8 @@ namespace Game.Enemy
       _navMesh = GetComponent<NavMeshAgent>();
       _animator = GetComponent<Animator>();
     }
-
+    
+    
     public void DealDamage(IHealth health, float damage)
     {
       health.TakeDamage(damage);
@@ -70,7 +71,6 @@ namespace Game.Enemy
 
         if (Vector3.Distance(target.transform.position, transform.position) <= _navMesh.stoppingDistance)
         {
-          print("Attacking");
           _animator.SetBool("isAttacking", true);
           DealDamage(target.GetComponent<IHealth>(), 0.1f);
        

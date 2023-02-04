@@ -6,6 +6,7 @@ namespace Game.Enemy
   public class EnemyFactory : SingletonMonoBehaviour<EnemyFactory>
   {
     [SerializeField] private GameObject _oduncu;
+    [SerializeField] private GameObject vfx;
 
     private void Awake() 
     {
@@ -19,6 +20,7 @@ namespace Game.Enemy
           case EnemyType.Oduncu:
           {
             var obj = Instantiate(_oduncu, spawnPosition, Quaternion.identity);
+            // vfx.transform.position = obj.transform.position;
             obj.transform.position = spawnPosition;
             var enemyController = obj.AddComponent<EnemyController>();
             enemyController.New(100);

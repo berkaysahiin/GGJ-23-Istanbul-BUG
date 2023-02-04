@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b13ba93b05d5b41abbef31cd5b4f7f, type: 3}
+  m_Name: SlowyCard
+  m_EditorClassIdentifier: 
+  cardName: Slowy Tree
+  cardSprite: {fileID: 960331645040201441, guid: ab7886800259b084a9dc564c2197c2cf,
+    type: 3}
+  card: {fileID: 1695833652826442743, guid: fe828be3f6e2c084eae24b6fd6b25505, type: 3}
+  description: "Tree Card\t\t"
+  oxygenCount: 20
+  spawnOffset: {x: 0, y: 0.2, z: 0}

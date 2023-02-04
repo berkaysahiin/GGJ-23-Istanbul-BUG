@@ -1,6 +1,7 @@
 using System;
 using Game.Controllers;
 using Game.ScriptableObjects;
+using Game.UIs;
 using Game.Utils;
 using UnityEngine;
 
@@ -72,6 +73,9 @@ namespace Game.Managers
         {
             CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
             _oxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
+            
+          
+            
             _pendingObject = null;
         }
         

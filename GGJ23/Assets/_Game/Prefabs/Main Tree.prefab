@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3129091900357795560}
   - component: {fileID: 903028663072598562}
   - component: {fileID: 903028663072598563}
-  - component: {fileID: 659233416330777212}
   m_Layer: 0
   m_Name: Main Tree
   m_TagString: Untagged
@@ -99,22 +98,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8422601, y: 4.6979146, z: 2.4542332}
   m_Center: {x: -0.18254566, y: 2.077535, z: -0.026393414}
---- !u!114 &659233416330777212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695833652826442743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a6bf5a631132814cbc61da4be7df2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xAnimValue: -0.001
-  zAnimValue: -0.01
-  initialAnimationDuration: 0.2
-  oxygenProduceFactor: 1
-  _health: 100
-  rootVfx: {fileID: 8787987436827556619, guid: 982b627172679094da2c0bc44bc30603, type: 3}
-  spawnedVfx: {fileID: 0}

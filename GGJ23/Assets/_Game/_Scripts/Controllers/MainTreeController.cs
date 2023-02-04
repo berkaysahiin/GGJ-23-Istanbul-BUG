@@ -7,15 +7,14 @@ namespace Game.Controllers
     {
         protected override void Start()
         {
-            
         }
-
         protected override void Update()
         {
             base.Update();
 
-            if(this.IsDead)
+            if(Health <= 0)
             {
+                Debug.Log("Main Tree Controller is Dead");
                 GameManager.Instance.LoseGame();
             }
 
