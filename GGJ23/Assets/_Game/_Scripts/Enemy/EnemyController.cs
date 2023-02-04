@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Game.Controllers;
 using Game.Managers;
@@ -48,28 +49,35 @@ namespace Game.Enemy
       if(IsDead) Destroy(this.gameObject);
       
       transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
-      
-      if (Vector3.Distance(target.transform.position, transform.position) >= _navMesh.stoppingDistance)
+      try
       {
-        _animator.SetBool("isAttacking", false);
-        _navMesh.SetDestination(target.transform.position);
-      }
-
-      if (Vector3.Distance(target.transform.position, transform.position) <= _navMesh.stoppingDistance)
-      {
-        print("Attacking");
-        _animator.SetBool("isAttacking", true);
-        DealDamage(target.GetComponent<IHealth>(), 0.1f);
-       
-        if (target.GetComponent<IHealth>().IsDead)
+        if (Vector3.Distance(target.transform.position, transform.position) >= _navMesh.stoppingDistance)
         {
-          if(target.GetComponent<TreeController>() != null)
-            Destroy(target.GetComponent<TreeController>().spawnedVfx.gameObject);
-          Destroy(target.gameObject);
+          _animator.SetBool("isAttacking", false);
+          _navMesh.SetDestination(target.transform.position);
         }
+
+        if (Vector3.Distance(target.transform.position, transform.position) <= _navMesh.stoppingDistance)
+        {
+          print("Attacking");
+          _animator.SetBool("isAttacking", true);
+          DealDamage(target.GetComponent<IHealth>(), 0.1f);
+       
+          if (target.GetComponent<IHealth>().IsDead)
+          {
+            if(target.GetComponent<TreeController>() != null)
+              Destroy(target.GetComponent<TreeController>().spawnedVfx.gameObject);
+            Destroy(target.gameObject);
+          }
         
-        transform.LookAt(target.transform);
+          transform.LookAt(target.transform);
+        }
       }
+      catch (Exception e)
+      {
+        Debug.Log("E: " + e.Message);
+      }
+      
     }
 
     private BaseTreeController GetClosestTree()

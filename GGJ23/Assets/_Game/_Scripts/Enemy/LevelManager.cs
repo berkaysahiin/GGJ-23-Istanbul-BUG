@@ -30,6 +30,7 @@ namespace Game.Enemy
         {
             _waveManager.HandleDay(_dayCycleController);
 
+            if(light == null) return;
             if(isNight) {
                 sinceNight += Time.deltaTime;
                 if(sinceNight > nightLength) {

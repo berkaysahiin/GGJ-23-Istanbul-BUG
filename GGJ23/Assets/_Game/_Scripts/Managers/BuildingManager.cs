@@ -45,6 +45,7 @@ namespace Game.Managers
 
         private void SetObjectPosition()
         {
+            if(_camera == null) return;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out _hit, layer))
