@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Game.Enemy;
 
 namespace Game.Controllers
 {
@@ -18,12 +19,14 @@ namespace Game.Controllers
             _oxygenAmount = 0;
         }
 
-        public void IncreaseOxygenAmount(float increaseValue)
+        public static void IncreaseOxygenAmount(float increaseValue)
         {
+            if(LevelManager.Instance.isNight) return;
+            
             _oxygenAmount += increaseValue * Time.deltaTime;
         }
 
-        public void DecreaseOxygenAmount(float decreaseValue)
+        public static void DecreaseOxygenAmount(float decreaseValue)
         {
             _oxygenAmount -= decreaseValue * Time.deltaTime;
         }

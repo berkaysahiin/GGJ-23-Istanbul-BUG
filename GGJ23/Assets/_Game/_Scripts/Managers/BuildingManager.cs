@@ -68,6 +68,7 @@ namespace Game.Managers
         public void PlaceObject()
         {
             CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
+            OxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
             _pendingObject = null;
         }
         

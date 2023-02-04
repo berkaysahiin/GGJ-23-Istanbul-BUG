@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Managers;
 
 namespace Game.Controllers
 {
@@ -7,6 +8,17 @@ namespace Game.Controllers
         protected override void Start()
         {
             
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if(this.IsDead)
+            {
+                GameManager.Instance.LoseGame();
+            }
+
         }
     }
 }

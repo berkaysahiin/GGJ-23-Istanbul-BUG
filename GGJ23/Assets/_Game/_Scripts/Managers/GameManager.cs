@@ -1,5 +1,7 @@
 using Game.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Game.Managers
 {
@@ -9,5 +11,33 @@ namespace Game.Managers
         {
             SetupInstance();
         }
+        public void LoadSelfScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        public void LoadSceneByBuildIndex()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        public void LoadSceneByIndex(int sceneIndex)
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
+
+        public void LoseGame()
+        {
+            // game over ekranı aktif olacak
+            // 3 saniye geçtikten sonra main menüye atsın
+
+        }
+
+        private IEnumerator ReturnToMainMenu()
+        {
+            yield return new WaitForSeconds(3);
+            this.LoadSceneByIndex(0);
+        }
+
+
+
     }
 }
