@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 2085519258402450482}
   - component: {fileID: 1709837457733727882}
   - component: {fileID: 1709837457733727883}
+  - component: {fileID: -8804667369638171317}
   m_Layer: 0
   m_Name: OduncuGR
   m_TagString: Untagged
@@ -452,6 +453,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!195 &-8804667369638171317
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709837457733727880}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1800810892747268120
 GameObject:
   m_ObjectHideFlags: 0

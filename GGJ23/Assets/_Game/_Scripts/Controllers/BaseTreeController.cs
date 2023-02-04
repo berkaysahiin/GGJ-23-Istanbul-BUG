@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 using DG.Tweening;
 using UnityEngine;
 using Game.Enemy;
@@ -17,7 +18,7 @@ namespace Game.Controllers
         
         private OxygenController _oxygenController;
         
-        private float _health;
+        [SerializeField] private float _health;
 
         public OxygenController OxygenController => _oxygenController;
 
@@ -39,6 +40,11 @@ namespace Game.Controllers
         protected virtual void Update()
         {
             MakeOxygen();
+
+            // if (IsDead)
+            // {
+            //     Destroy(this);
+            // }
         }
 
         protected void MakeOxygen()

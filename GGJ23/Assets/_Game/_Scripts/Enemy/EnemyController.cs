@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Controllers;
-using DG.Tweening;
+using UnityEngine.AI;
 
 namespace Game.Enemy
 {
@@ -8,11 +8,18 @@ namespace Game.Enemy
   {
     [SerializeField] private float _health;
     public float Health => _health;
+    private NavMeshAgent _navMesh;
+    private Animator _animator;
     public bool IsDead => _health <= 0;
 
     public BaseTreeController  target { get; set; }
 
-    
+    private void Awake()
+    {
+      _navMesh = GetComponent<NavMeshAgent>();
+      _animator = GetComponent<Animator>();
+    }
+
     public void DealDamage(IHealth health, float damage)
     {
       health.TakeDamage(damage);
@@ -33,8 +40,27 @@ namespace Game.Enemy
     {
       target = GetClosestTree();
       if(IsDead) Destroy(this.gameObject);
-      transform.DOMove(target.transform.position, 10);
-      transform.LookAt(target.transform);
+      
+      transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
+      
+      if (Vector3.Distance(target.transform.position, transform.position) >= _navMesh.stoppingDistance)
+      {
+        _animator.SetBool("isAttacking", false);
+        _navMesh.SetDestination(target.transform.position);
+      }
+
+      if (Vector3.Distance(target.transform.position, transform.position) <= _navMesh.stoppingDistance)
+      {
+        _animator.SetBool("isAttacking", true);
+        DealDamage(target.GetComponent<IHealth>(), 0.1f);
+        if (target.GetComponent<IHealth>().IsDead)
+        {
+          Destroy(target.GetComponent<TreeController>().spawnedVfx.gameObject);
+          Destroy(target.gameObject);
+        }
+        
+        transform.LookAt(target.transform);
+      }
     }
 
     private BaseTreeController GetClosestTree()
