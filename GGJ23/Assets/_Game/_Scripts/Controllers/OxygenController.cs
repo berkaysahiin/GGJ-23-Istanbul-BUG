@@ -18,11 +18,6 @@ namespace Game.Controllers
             _oxygenAmount = 0;
         }
 
-        private void Update()
-        {
-            Debug.Log(_oxygenAmount);
-        }
-
         public void IncreaseOxygenAmount(float increaseValue)
         {
             _oxygenAmount += increaseValue * Time.deltaTime;

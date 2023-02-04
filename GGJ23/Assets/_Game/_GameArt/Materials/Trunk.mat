@@ -54,7 +54,7 @@ Material:
     - _metallic: 0
     - _rougness: 0
     m_Colors:
-    - _Color: {r: 0.9150943, g: 0.29216868, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorBottom: {r: 0.3882353, g: 0.10708137, b: 0, a: 0}
     - _ColorTop: {r: 0.6509434, g: 0.20976436, b: 0, a: 0}
   m_BuildTextureStacks: []

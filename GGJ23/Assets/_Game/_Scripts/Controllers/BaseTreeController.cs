@@ -18,6 +18,8 @@ namespace Game.Controllers
 
         public OxygenController OxygenController => _oxygenController;
 
+        private Vector3 offset;
+
         private void Awake()
         {
             _oxygenController = FindObjectOfType<OxygenController>();
@@ -25,9 +27,7 @@ namespace Game.Controllers
 
         protected virtual void Start()
         {   
-            transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, zAnimValue), initialAnimationDuration)
-            .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
-
+     
         }
 
         private void Update()

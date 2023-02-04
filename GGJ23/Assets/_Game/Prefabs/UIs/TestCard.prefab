@@ -19,8 +19,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555896571080093444, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3431705747670937526}
+    - target: {fileID: 1555896571080093444, guid: 5932778b3787400439ccc8bb669b362c,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555896571080093444, guid: 5932778b3787400439ccc8bb669b362c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555896571080093444, guid: 5932778b3787400439ccc8bb669b362c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.UIs.CardButtonUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555896571080093444, guid: 5932778b3787400439ccc8bb669b362c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1555896571080093446, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
