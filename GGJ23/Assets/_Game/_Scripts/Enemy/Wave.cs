@@ -1,17 +1,21 @@
 using System;
-using Game.Enemy;
 using UnityEngine;
 
 namespace Game
 {
-    public class Wave : MonoBehaviour
+    public class Wave 
     {
-        private float _duration = 5;
+        private float _duration;
         private int _totalEnemyCount;
-        private int _difficultyLevel;
 
-        private float _currentWaveTime;
+        public float duration => _duration;
+        public int totalEnemyCount => _totalEnemyCount;
+        public float difficultyLevel => _duration;
 
-        public bool IsWaveFinished => _duration >= _currentWaveTime;
+        public Wave(float duration, int totalEnemyCount)
+        {
+            _duration = duration;
+            _totalEnemyCount = totalEnemyCount;
+        }
     }
 }

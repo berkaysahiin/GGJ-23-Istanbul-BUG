@@ -1,10 +1,11 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using Game.Enemy;
 
 namespace Game.Controllers
 {
-    public abstract class BaseTreeController : MonoBehaviour
+    public abstract class BaseTreeController : MonoBehaviour, IHealth
     {  
         [Header("Animations"), Space]
         [SerializeField] private float xAnimValue = -0.5f;
@@ -15,8 +16,13 @@ namespace Game.Controllers
         [SerializeField] protected float oxygenProduceFactor;
         
         private OxygenController _oxygenController;
+        
+        private float _health;
 
         public OxygenController OxygenController => _oxygenController;
+
+        public float Health => _health; 
+        public bool IsDead => _health <= 0;
 
         private void Awake()
         {
@@ -39,5 +45,10 @@ namespace Game.Controllers
         {
             OxygenController.IncreaseOxygenAmount(oxygenProduceFactor);
         }
-    }
+
+        public void TakeDamage(float dmg)
+        {
+            _health -= dmg;
+        }
+  }
 }

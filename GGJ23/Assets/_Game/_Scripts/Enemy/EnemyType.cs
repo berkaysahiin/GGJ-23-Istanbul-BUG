@@ -3,9 +3,7 @@ namespace Game.Enemy
 {
     public enum EnemyType 
     {
+        Oduncu,
         None,
-        Type1,
-        Type2,
-        Type3,
     }
 }

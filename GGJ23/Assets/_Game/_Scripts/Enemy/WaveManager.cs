@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Utils;
@@ -7,7 +6,6 @@ namespace Game.Enemy
 {
     public class WaveManager : SingletonMonoBehaviour<WaveManager>
     {
-        [SerializeField] private List<Wave> waves;
         private SpawnController _spawnController;
 
         private void Awake()
@@ -16,27 +14,22 @@ namespace Game.Enemy
             _spawnController = FindObjectOfType<SpawnController>();
         }
 
-        private void Start()
+        public void HandleDay(DayCycleController dayCycleController)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                var wave = Instantiate(waves[i].gameObject, transform.position, Quaternion.identity);
-                wave.transform.SetParent(transform);
-                waves.Add(wave.GetComponent<Wave>());
-                wave.SetActive(false);
-            }
+            if(dayCycleController.dayFinished) return;
+            SpawnWave(dayCycleController.GetNewReadyWave());
         }
 
-        private void Update()
+        public void SpawnWave(Wave wave) 
         {
-            for (var i = 0; i < waves.Count; i++)
-            {
-                var wave = waves[i];
+            if(wave is null) return;
 
-                if (wave.IsWaveFinished)
-                {
-                    wave.gameObject.SetActive(false);
-                }
+            print("new way in coming " + wave);
+
+            List<Vector3> spawnPoints = _spawnController.GetRandomPoints(wave.totalEnemyCount);
+            foreach(var location in spawnPoints)
+            {
+                EnemyFactory.Instance.InstantiateEnemy(EnemyType.Oduncu, location);
             }
         }
     }

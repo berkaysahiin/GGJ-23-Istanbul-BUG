@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game.Utils;
 using UnityEngine;
 
@@ -7,6 +5,8 @@ namespace Game.Enemy
 {
   public class EnemyFactory : SingletonMonoBehaviour<EnemyFactory>
   {
+    [SerializeField] private GameObject _oduncu;
+
     private void Awake() 
     {
         SetupInstance();
@@ -14,9 +14,20 @@ namespace Game.Enemy
 
     public EnemyController InstantiateEnemy(EnemyType type, Vector3 spawnPosition)
     {
-        var obj = new GameObject(type.ToString());
-        obj.transform.position = spawnPosition;
-        return obj.AddComponent<EnemyController>();
-    }
+        switch(type)
+        {
+          case EnemyType.Oduncu:
+          {
+            var obj = Instantiate(_oduncu, spawnPosition, Quaternion.identity);
+            obj.transform.position = spawnPosition;
+            var enemyController = obj.AddComponent<EnemyController>();
+            enemyController.New(100);
+            return enemyController;
+          }
+        }
+
+        Debug.LogError("Please speficy enemy type you want to instantiate");
+        return null;
+      }
   }
 }

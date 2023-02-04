@@ -6,7 +6,7 @@ namespace Game.Enemy
 {
     public class SpawnController : MonoBehaviour
     {
-        [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
+        private List<Transform> _spawnPoints = new List<Transform>();
         public List<Transform> spawnPoints => _spawnPoints;
     
         private void Awake() 
@@ -16,7 +16,7 @@ namespace Game.Enemy
             _spawnPoints.Remove(this.transform);
         }
 
-        private List<Vector3> GetRandomPoints(int count)
+        public List<Vector3> GetRandomPoints(int count)
         {
             List<Vector3> returnVector = new List<Vector3>();
 
