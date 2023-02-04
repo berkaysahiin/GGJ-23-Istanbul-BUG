@@ -11,7 +11,7 @@ namespace Game.Controllers
         [SerializeField] private float xAnimValue = -0.5f;
         [SerializeField] private float zAnimValue = -0.5f;
         [SerializeField] private float initialAnimationDuration = 0.2f;
-
+        
         [Header("Oxygen Produce Factor"), Space] 
         [SerializeField] protected float oxygenProduceFactor;
         
@@ -36,7 +36,7 @@ namespace Game.Controllers
 
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             MakeOxygen();
         }

@@ -82,9 +82,11 @@ namespace Game.UIs
 
         public void DraggingStart()
         {
-            _isDragging = true;
-            BuildingManager.Instance.SelectObject(cardScriptableObject);
-            
+            if (IsCardSelectable)
+            {
+                _isDragging = true;
+                BuildingManager.Instance.SelectObject(cardScriptableObject);
+            }
         }
 
         public void SelectionOver()
