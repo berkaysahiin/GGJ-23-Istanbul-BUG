@@ -4,7 +4,7 @@ using DG.Tweening;
 
 namespace Game.Enemy
 {
-  public class EnemyController : MonoBehaviour, IHealth, IDamageDealer
+  public class EnemyController : BaseCharacterController, IHealth, IDamageDealer
   {
     [SerializeField] private float _health;
     public float Health => _health;
@@ -12,11 +12,7 @@ namespace Game.Enemy
 
     public BaseTreeController  target { get; set; }
 
-    private void Start()
-    {
-      target= GetClosestTree();
-    }
-
+    
     public void DealDamage(IHealth health, float damage)
     {
       health.TakeDamage(damage);
@@ -35,6 +31,7 @@ namespace Game.Enemy
 
     public void Update()
     {
+      target = GetClosestTree();
       if(IsDead) Destroy(this.gameObject);
       transform.DOMove(target.transform.position, 10);
       transform.LookAt(target.transform);
@@ -53,8 +50,9 @@ namespace Game.Enemy
 
         var distance = Vector3.Distance(transform.position, collider.gameObject.transform.position);
 
-        if(distance < minDistance) 
+        if(distance < minDistance)
         {
+          minDistance = distance;
           targetTree = collider.GetComponent<BaseTreeController>();
         }
       }

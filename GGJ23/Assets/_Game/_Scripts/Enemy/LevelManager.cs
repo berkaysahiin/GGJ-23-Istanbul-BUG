@@ -16,7 +16,7 @@ namespace Game.Enemy
         private int _dayCount = 1;
         private Light _light;
 
-        public void BUTTON_TEST()
+        private void Start()
         {
             NewDay();
         }
@@ -46,7 +46,7 @@ namespace Game.Enemy
             }
         }
 
-        private void NewDay()
+        public void NewDay()
         {
             Destroy(_dayCycleController.gameObject);
             _dayCycleController = DayCycleController.New(_dayCount * 2);
