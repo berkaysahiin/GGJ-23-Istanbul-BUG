@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Game.Controllers;
 using Game.Managers;
@@ -46,6 +47,16 @@ namespace Game.Enemy
         GameManager.Instance.LoseGame();
       }
 
+      if (LevelManager.Instance.isNight)
+      {
+        transform.DOMove(new Vector3(-1000 * transform.forward.x, 0, -1000 * transform.forward.z), 1000);
+        transform.localRotation = Quaternion.Euler(new Vector3(transform.localRotation.x, transform.localRotation.y * -1, transform.localRotation.z));
+        _navMesh.SetDestination(Vector3.zero);
+        _animator.SetBool("isDead", true);
+        Destroy(this.gameObject, 5);
+      }
+      
+      if(LevelManager.Instance.isNight) return;
       if(IsDead) Destroy(this.gameObject);
       
       transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
