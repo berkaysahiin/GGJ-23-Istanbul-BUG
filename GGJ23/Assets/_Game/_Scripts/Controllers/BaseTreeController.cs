@@ -16,19 +16,10 @@ namespace Game.Controllers
         [Header("Oxygen Produce Factor"), Space] 
         [SerializeField] protected float oxygenProduceFactor;
         
-        private OxygenController _oxygenController;
-        
         [SerializeField] private float _health;
-
-        public OxygenController OxygenController => _oxygenController;
 
         public float Health => _health; 
         public bool IsDead => _health <= 0;
-
-        private void Awake()
-        {
-            _oxygenController = FindObjectOfType<OxygenController>();
-        }
 
         protected virtual void Start()
         {   

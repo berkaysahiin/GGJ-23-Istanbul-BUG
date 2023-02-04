@@ -1,15 +1,17 @@
 using UnityEngine;
+using Game.Utils;
 
 namespace Game.Enemy
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : SingletonMonoBehaviour<LevelManager>
     {
         public bool isDay => !_dayCycleController.dayFinished;
         public bool isNight => _dayCycleController.dayFinished;
+        public int dayCount => _dayCount;
 
         private WaveManager _waveManager;
         private DayCycleController _dayCycleController;
-        private int _dayCount = 1;
+        private int _dayCount = 0;
         private float nightLength => 10;
         private float sinceNight;
 
@@ -17,6 +19,8 @@ namespace Game.Enemy
 
         private void Awake()
         {
+            SetupInstance();
+
             _waveManager = FindObjectOfType<WaveManager>();
             _dayCycleController = FindObjectOfType<DayCycleController>();
             light = FindObjectOfType<Light>();
@@ -39,15 +43,13 @@ namespace Game.Enemy
                 sinceNight = 0;
             }
 
-                
-            print(sinceNight);
             Debug.Log("isDay " + isDay);
         }
 
         public void NewDay()
         {
             Destroy(_dayCycleController.gameObject);
-            _dayCycleController = DayCycleController.New(_dayCount * 2);
+            _dayCycleController = DayCycleController.New((_dayCount + 1) * 2);
             _dayCount++;
         }
     }

@@ -11,8 +11,10 @@ namespace Game.Enemy
     private NavMeshAgent _navMesh;
     private Animator _animator;
     public bool IsDead => _health <= 0;
+    public bool IsFeared => LevelManager.Instance.isNight;
 
-    public BaseTreeController  target { get; set; }
+
+    public Transform  target { get; set; }
 
     private void Awake()
     {
@@ -38,7 +40,13 @@ namespace Game.Enemy
 
     public void Update()
     {
-      target = GetClosestTree();
+      if(IsFeared) {
+        SetTarget(Vector3.back * 100);
+      }
+      else {
+        target = GetClosestTree();
+      }
+
       if(IsDead) Destroy(this.gameObject);
       
       transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
@@ -51,6 +59,7 @@ namespace Game.Enemy
 
       if (Vector3.Distance(target.transform.position, transform.position) <= _navMesh.stoppingDistance)
       {
+        print("Attacking");
         _animator.SetBool("isAttacking", true);
         DealDamage(target.GetComponent<IHealth>(), 0.1f);
         if (target.GetComponent<IHealth>().IsDead)
@@ -63,7 +72,7 @@ namespace Game.Enemy
       }
     }
 
-    private BaseTreeController GetClosestTree()
+    private Transform GetClosestTree()
     {
       Collider[] colliders = Physics.OverlapSphere(transform.position, 40);
 
@@ -83,7 +92,12 @@ namespace Game.Enemy
         }
       }
 
-      return targetTree;
+      return targetTree.transform;
+    }
+
+    public void SetTarget(Vector3 fearPoint)
+    {
+      target.position = fearPoint;
     }
 
     public void OnDrawGizmos()
