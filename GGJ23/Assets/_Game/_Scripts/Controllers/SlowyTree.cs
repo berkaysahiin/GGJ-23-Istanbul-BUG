@@ -1,5 +1,6 @@
 using Game.Controllers;
 using Game.Enemy;
+using Game.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,11 @@ namespace Game
 
         protected override void Start()
         {
+            if (rootVfx == null)
+            {
+                GameManager.Instance.LoseGame();
+                return;
+            }
             spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
 
         }
@@ -19,7 +25,6 @@ namespace Game
         protected override void Update()
         {
             base.Update();
-
             
             spawnedVfx.GetComponentsInChildren<Transform>()[2].transform.position = transform.position;
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);

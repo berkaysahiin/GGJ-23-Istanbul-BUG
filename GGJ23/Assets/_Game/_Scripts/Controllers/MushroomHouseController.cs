@@ -28,6 +28,7 @@ namespace Game.Controllers
         {
             if (LevelManager.Instance.isDay)
             {
+                yield return new WaitForSeconds(2);
                 Instantiate(mushroom.gameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(3);
                 StartCoroutine(SpawnMushroom());

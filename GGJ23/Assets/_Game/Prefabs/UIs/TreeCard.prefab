@@ -86,12 +86,12 @@ PrefabInstance:
     - target: {fileID: 1555896571080093447, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 155.8468
       objectReference: {fileID: 0}
     - target: {fileID: 1555896571080093447, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 151.4227
+      value: 236.8214
       objectReference: {fileID: 0}
     - target: {fileID: 1555896571080093447, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 1555896571080093447, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.4212
       objectReference: {fileID: 0}
     - target: {fileID: 1555896571080093447, guid: 5932778b3787400439ccc8bb669b362c,
         type: 3}
@@ -214,10 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMovement:
-    cardMovement: 20
-    cardDuration: 1
+    cardMovement: 100
+    cardDuration: 3
   cardScriptableObject: {fileID: 11400000, guid: 64332e0eb951c884a8b97dc57af1c1c9,
     type: 2}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
