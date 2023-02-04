@@ -26,7 +26,7 @@ namespace Game.Controllers
             _oxygenAmount += increaseValue * Time.deltaTime;
         }
 
-        public static void DecreaseOxygenAmount(float decreaseValue)
+        public void DecreaseOxygenAmount(float decreaseValue)
         {
             _oxygenAmount -= decreaseValue * Time.deltaTime;
         }

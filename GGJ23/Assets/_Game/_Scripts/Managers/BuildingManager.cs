@@ -14,12 +14,14 @@ namespace Game.Managers
         private GameObject _pendingObject;
         private Vector3 _pos;
         private RaycastHit _hit;
-
+        private OxygenController _oxygenController;
+        
         private CardScriptableObject _holdingCardSo;
         
         private void Awake()
         {
-            SetupInstance();   
+            SetupInstance();
+            _oxygenController = FindObjectOfType<OxygenController>();
         }
 
         private void Start()
@@ -68,7 +70,7 @@ namespace Game.Managers
         public void PlaceObject()
         {
             CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
-            OxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
+            _oxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
             _pendingObject = null;
         }
         

@@ -10,7 +10,7 @@ namespace Game.Controllers
         protected override void Start()
         {
             base.Start();
-            spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, -3, 0), Quaternion.identity);
+            spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
         }
 
         protected override void Update()

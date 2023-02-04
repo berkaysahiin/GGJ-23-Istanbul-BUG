@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Controllers;
+using Game.Managers;
 using UnityEngine.AI;
 
 namespace Game.Enemy
@@ -12,6 +13,7 @@ namespace Game.Enemy
     private Animator _animator;
     public bool IsDead => _health <= 0;
     public bool IsFeared => LevelManager.Instance.isNight;
+    private BaseTreeController _targetTree = null;
 
 
     public Transform  target { get; set; }
@@ -40,8 +42,10 @@ namespace Game.Enemy
 
     public void Update()
     {
-      if(IsFeared) {
-        SetTarget(Vector3.back * 100);
+      if(IsFeared)
+      {
+        target = GetClosestTree();
+        // SetTarget(Vector3.back * 100);
       }
       else {
         target = GetClosestTree();
@@ -62,9 +66,11 @@ namespace Game.Enemy
         print("Attacking");
         _animator.SetBool("isAttacking", true);
         DealDamage(target.GetComponent<IHealth>(), 0.1f);
+       
         if (target.GetComponent<IHealth>().IsDead)
         {
-          Destroy(target.GetComponent<TreeController>().spawnedVfx.gameObject);
+          if(target.GetComponent<TreeController>() != null)
+            Destroy(target.GetComponent<TreeController>().spawnedVfx.gameObject);
           Destroy(target.gameObject);
         }
         
@@ -77,7 +83,6 @@ namespace Game.Enemy
       Collider[] colliders = Physics.OverlapSphere(transform.position, 40);
 
       float minDistance = float.MaxValue;
-      BaseTreeController targetTree = null;
 
       foreach(var collider in colliders)
       {
@@ -88,11 +93,11 @@ namespace Game.Enemy
         if(distance < minDistance)
         {
           minDistance = distance;
-          targetTree = collider.GetComponent<BaseTreeController>();
+          _targetTree = collider.GetComponent<BaseTreeController>();
         }
       }
 
-      return targetTree.transform;
+      return _targetTree.transform;
     }
 
     public void SetTarget(Vector3 fearPoint)
