@@ -51,7 +51,7 @@ namespace Game.Enemy
 
         public void NewDay()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 _cardRenderer.SetupCardDeck();
                 _cardRenderer.SetupCardRotations(CardManager.Instance.Cards.Count - 1);
