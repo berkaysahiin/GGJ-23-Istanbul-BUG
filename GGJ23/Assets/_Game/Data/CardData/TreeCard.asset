@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Tree
   cardSprite: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
-  card: {fileID: 4497422443446685304, guid: db2e8be4b052cde47b82e0c7aedc511f, type: 3}
+  card: {fileID: 1695833652826442743, guid: eee5383a078c2494dbe377bc2a86c47c, type: 3}
   description: "Tree Card\t\t"
   oxygenCount: 20
-  spawnOffset: {x: 0, y: 0.5, z: 0}
+  spawnOffset: {x: 0, y: 0.2, z: 0}

@@ -29,6 +29,7 @@ namespace Game.UIs
         private TextMeshProUGUI _oxygenCount;
         private Image _cardImage;
 
+        
         private bool IsCardSelectable => cardScriptableObject.oxygenCount < OxygenController.OxygenAmount;
         
         private void Awake()
@@ -43,7 +44,7 @@ namespace Game.UIs
             MoveCard(transform.up, cardMovement.cardMovement, cardMovement.cardDuration);
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (IsCardSelectable)
             {
@@ -82,18 +83,19 @@ namespace Game.UIs
         public void DraggingStart()
         {
             _isDragging = true;
+            BuildingManager.Instance.SelectObject(cardScriptableObject);
+            
         }
 
         public void SelectionOver()
         {
             if (IsCardSelectable)
             {
-                _isDragging = false;
+                BuildingManager.Instance.PlaceObject();
                 CardManager.Instance.Cards.Remove(this);
+                _isDragging = false;
                 Destroy(this.gameObject);
             }
         }
-
-        protected abstract void SpawnEntity();
     }
 }
