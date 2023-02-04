@@ -21,6 +21,38 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Color:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_469a2db8b0c040079a7e32f01dd82417_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 38422f1c83c130f49a7fef3174fcb803, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_59b892caae6c46d792e8a582525c567c_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df934611e620e054d8fe6155d50f18fe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a4734b2f839c41f0b974e6e8e1b54377_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 74a6c4723fcbc3044bfc10d8260f0508, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_fcd5070c2b164e78b87a38eadd17e23f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6c7711c5cb9330642a09eb2f71e2032e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -35,14 +67,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorHeight: 11.87
-    - _ColorSmooth: 8.89
+    - _ColorHeight: 6.53
+    - _ColorSmooth: 2.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _metallic: 0
     - _rougness: 0
     m_Colors:
-    - _ColorBottom: {r: 0.02358268, g: 0.37735847, b: 0.008899963, a: 0}
+    - _ColorBottom: {r: 0.012444799, g: 0.2924528, b: 0, a: 0}
     - _ColorTop: {r: 0.04671836, g: 0.8867924, b: 0.004182993, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1781049198596237126
