@@ -31,8 +31,8 @@ namespace Game.Controllers
 
         protected virtual void Start()
         {   
-            transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, zAnimValue), initialAnimationDuration)
-            .OnComplete(() => transform.DOScale(new Vector3(1, 1, 1), 1.0f));
+            transform.DOScale(new Vector3(xAnimValue, transform.localScale.y, transform.localScale.z), initialAnimationDuration)
+                .OnComplete(() => transform.DOScale(new Vector3(.2f, transform.localScale.y, .2f), 1.0f));
 
         }
 
