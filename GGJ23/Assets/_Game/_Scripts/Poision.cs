@@ -6,11 +6,13 @@ namespace Game.Enemy
     {
         [SerializeField] private float radius;
         [SerializeField] private float damage;
+        [SerializeField] private float lifeTime;
         [SerializeField] private float repeatRate;
 
         private void Awake() 
         {
             InvokeRepeating(nameof(Damage), 0, repeatRate);
+            Destroy(this.gameObject, lifeTime);
         }
 
         private void Damage()
