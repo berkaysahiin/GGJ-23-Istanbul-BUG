@@ -8,9 +8,12 @@ namespace Game.Enemy
         [SerializeField] private float damage;
         [SerializeField] private float lifeTime;
 
+        [SerializeField] private GameObject vfx;
+
         private void Awake() 
         {
             Destroy(this.gameObject, lifeTime);
+            GameObject.Instantiate(vfx, this.transform.position, Quaternion.identity);
         }
 
         private void OnTriggerEnter(Collider other)
