@@ -13,6 +13,10 @@ namespace Game.Enemy
         private void Awake() 
         {
             Destroy(this.gameObject, lifeTime);
+        }
+
+        public void PlayVFX()
+        {
             GameObject.Instantiate(vfx, this.transform.position, Quaternion.identity);
         }
 
