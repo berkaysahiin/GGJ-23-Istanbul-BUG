@@ -26,8 +26,6 @@ namespace Game.Enemy
         {
             if(wave is null) return;
         
-            print("new way in coming " + wave);
-
             List<Vector3> spawnPoints = _spawnController.GetRandomPoints(wave.totalEnemyCount);
             foreach(var location in spawnPoints)
             {

@@ -11,7 +11,6 @@ namespace Game.Managers
     {
         [SerializeField] private LayerMask layer;
         
-        private Camera _camera;
         private GameObject _pendingObject;
         private Vector3 _pos;
         private RaycastHit _hit;
@@ -23,11 +22,6 @@ namespace Game.Managers
         {
             SetupInstance();
             _oxygenController = FindObjectOfType<OxygenController>();
-        }
-
-        private void Start()
-        {
-            _camera = Camera.main;
         }
 
         private void Update()
@@ -45,8 +39,7 @@ namespace Game.Managers
 
         private void SetObjectPosition()
         {
-            if(_camera == null) return;
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
             if (Physics.Raycast(ray, out _hit, layer))
             {
@@ -83,7 +76,6 @@ namespace Game.Managers
             
             if (_pendingObject.gameObject.GetComponent<IEntityController>() != null)
             {
-                Debug.Log("TESTTT");    
             }
         }
     }

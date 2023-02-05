@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using Game.Enemy;
+using Game.Utils;
 
 namespace Game.Controllers
 {
-    public class OxygenController : MonoBehaviour
+    public class OxygenController : SingletonMonoBehaviour<OxygenController>
     {
        private static float _oxygenAmount;
 
@@ -12,6 +13,11 @@ namespace Game.Controllers
         {
             get => _oxygenAmount;
             set => _oxygenAmount = value;
+        }
+
+        private void Awake()
+        {
+            SetupInstance();
         }
 
         public void ResetOxygenAmount()

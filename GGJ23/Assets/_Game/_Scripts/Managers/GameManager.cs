@@ -27,14 +27,12 @@ namespace Game.Managers
                 gameOverPanel = FindObjectOfType<GameOverPanel>();
                 _oxygenController = FindObjectOfType<OxygenController>();
                 Debug.Log("AA:" + _oxygenController);
-                gameOverPanel.gameObject.SetActive(false);
             }
         }
 
         private void Update()
         {
             if(gameOverPanel == null) return;   
-            Debug.Log("Game Over Panel: " + gameOverPanel.gameObject);
         }
 
         public void LoadSelfScene()
@@ -63,18 +61,11 @@ namespace Game.Managers
 
         private IEnumerator ReturnToMainMenu()
         {
-            // FinishGame();
-            yield return new WaitForSeconds(3);
-            
-            this.LoadSceneByIndex(0);
+            yield return new WaitForSeconds(3.0f);
+            CardManager.Instance.ClearList();
+            OxygenController.Instance.ResetOxygenAmount();
             LevelManager.Instance.ResetDayCount();
-            
-        }
-
-        private void FinishGame()
-        {
-            _gameOver = true;
-            gameOverPanel.gameObject.SetActive(true);
+            this.LoadSceneByIndex(0);
         }
     }
 }

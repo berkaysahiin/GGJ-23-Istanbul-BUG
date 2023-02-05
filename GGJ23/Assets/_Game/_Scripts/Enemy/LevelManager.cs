@@ -30,10 +30,11 @@ namespace Game.Enemy
             _cardRenderer = FindObjectOfType<CardRendererUI>();
         }
 
-        private void Update() 
+        private void Update()
         {
+            Debug.Log("IS NIGHT: " + isNight);
             _waveManager.HandleDay(_dayCycleController);
-
+            
             if(light == null) return;
             if(isNight) {
                 sinceNight += Time.deltaTime;

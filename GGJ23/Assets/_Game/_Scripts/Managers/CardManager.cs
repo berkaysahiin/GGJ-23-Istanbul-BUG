@@ -35,5 +35,10 @@ namespace Game.Managers
             if (item != null)
                 cards.Remove(item);
         }
+
+        public void ClearList()
+        {
+            cards.Clear();
+        }
     }
 }

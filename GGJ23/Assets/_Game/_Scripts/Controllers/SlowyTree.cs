@@ -11,14 +11,19 @@ namespace Game
         [SerializeField] private float radius;
         [SerializeField] private float coefficent;
 
+        private MainTreeController _mainTree;
+
         protected override void Start()
         {
             if (rootVfx == null)
             {
                 return;
             }
+
+            _mainTree = FindObjectOfType<MainTreeController>();
+            if(_mainTree == null) return;
             
-            spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            spawnedVfx = Instantiate(rootVfx, _mainTree.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
 
         }
 
