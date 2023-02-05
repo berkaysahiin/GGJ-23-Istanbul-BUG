@@ -7,14 +7,18 @@ namespace Game.Enemy
     {
         public bool newWaveReady => !allWavesSpawned && _sinceLastWave > waves.Peek().duration;
         public bool dayFinished => allWavesSpawned && _sinceLastWave > lastDuration;
+        public float untilNight => _untilNight;
         public bool allWavesSpawned => waves.Count == 0;
         public Stack<Wave> waves = new Stack<Wave>();
-        public float _sinceLastWave = 1000000;
+
+        private float _sinceLastWave = 1000000;
         private float lastDuration;
+        private float _untilNight;
 
         public void Update()
         {
             _sinceLastWave += Time.deltaTime;
+            _untilNight = untilNight > 0 ? untilNight - Time.deltaTime : 0;
         }
 
         public Wave GetNewReadyWave()
@@ -37,9 +41,12 @@ namespace Game.Enemy
         {
             for(int i = 0; i < amount; i++)
             {
+                var duration = 7;
+                var enemyCount = 3;
                 this.waves.Push(
-                    new Wave(7, 3)
+                    new Wave(duration, enemyCount)
                 );
+                _untilNight += duration;
             }
         }
     }

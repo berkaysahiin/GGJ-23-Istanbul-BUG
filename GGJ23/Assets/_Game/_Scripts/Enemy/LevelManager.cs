@@ -10,6 +10,8 @@ namespace Game.Enemy
         public bool isDay => !_dayCycleController.dayFinished;
         public bool isNight => _dayCycleController.dayFinished;
         public int dayCount => _dayCount;
+        public float untilNight => _dayCycleController.untilNight;
+        public float untilDay => nightLength - sinceNight;
 
         private WaveManager _waveManager;
         private DayCycleController _dayCycleController;
