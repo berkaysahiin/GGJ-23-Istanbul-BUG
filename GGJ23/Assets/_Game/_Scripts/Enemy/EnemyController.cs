@@ -17,6 +17,7 @@ namespace Game.Enemy
     public bool IsFeared => LevelManager.Instance.isNight;
 
     public BaseTreeController target { get; set; }
+    
 
     private void Awake()
     {
@@ -47,23 +48,25 @@ namespace Game.Enemy
       {
         Destroy(this.gameObject);
         return;
+      }  
+      if (LevelManager.Instance.isNight)
+      {
+        transform.DOMove(new Vector3(-1000 * transform.forward.x, 0, -1000 * transform.forward.z), 1000);
+        // transform.localRotation = Quaternion.Euler(new Vector3(transform.localRotation.x, transform.localRotation.y * -1, transform.localRotation.z));
+        _navMesh.SetDestination(Vector3.zero);
+        _animator.SetBool("isDead", true);
+        Destroy(this.gameObject, 10);
       }
+      
+      if(LevelManager.Instance.isNight) return;
+  
+
       var target = GetClosestTree();
       if(target == null) {
         // GameManager.Instance.LoseGame();
       }
 
-      if (LevelManager.Instance.isNight)
-      {
-        transform.DOMove(new Vector3(-1000 * transform.forward.x, 0, -1000 * transform.forward.z), 1000);
-        transform.localRotation = Quaternion.Euler(new Vector3(transform.localRotation.x, transform.localRotation.y * -1, transform.localRotation.z));
-        _navMesh.SetDestination(Vector3.zero);
-        _animator.SetBool("isDead", true);
-        Destroy(this.gameObject, 5);
-      }
-      
-      if(LevelManager.Instance.isNight) return;
-      
+    
       transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
       try
       {
