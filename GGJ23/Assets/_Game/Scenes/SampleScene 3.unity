@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -603,7 +603,7 @@ RectTransform:
   m_GameObject: {fileID: 327582447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.74718, y: 0.84974, z: 1}
+  m_LocalScale: {x: 0.87920666, y: 1.1215719, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 537437203}
@@ -611,7 +611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 196, y: 0}
+  m_AnchoredPosition: {x: 196, y: -114}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327582449
@@ -646,8 +646,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294934528
-  m_fontColor: {r: 0, g: 0.50241804, b: 1, a: 1}
+    rgba: 4278231039
+  m_fontColor: {r: 1, g: 0.6244015, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1545,7 +1545,7 @@ RectTransform:
   m_GameObject: {fileID: 537437202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.13024001, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 327582448}
@@ -1554,7 +1554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchoredPosition: {x: 0, y: -18}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &537437204
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1818,7 +1818,7 @@ RectTransform:
   m_GameObject: {fileID: 572567058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.235853, y: 3.8477092, z: 1}
+  m_LocalScale: {x: 6.1402926, y: 7.0282254, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1886551377}
@@ -1826,7 +1826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -52}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572567060
@@ -1859,8 +1859,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278247935
-  m_fontColor: {r: 1, g: 0.88279974, b: 0, a: 1}
+    rgba: 4278231039
+  m_fontColor: {r: 1, g: 0.6244015, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3674,7 +3674,7 @@ PrefabInstance:
     - target: {fileID: 4000192893489829289, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 0.07503659
+      value: 0.6244015
       objectReference: {fileID: 0}
     - target: {fileID: 4000192893489829289, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
@@ -3694,7 +3694,7 @@ PrefabInstance:
     - target: {fileID: 4000192893489829289, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278195199
+      value: 4278231039
       objectReference: {fileID: 0}
     - target: {fileID: 4000192894714945350, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
@@ -3710,7 +3710,7 @@ PrefabInstance:
     - target: {fileID: 4000192894714945350, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000192894714945368, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
@@ -3815,7 +3815,7 @@ PrefabInstance:
     - target: {fileID: 4000192894714945368, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.099976
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4000192894714945368, guid: ec4cf458c0bae5c79af6fb7a0277c299,
         type: 3}
@@ -4124,7 +4124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

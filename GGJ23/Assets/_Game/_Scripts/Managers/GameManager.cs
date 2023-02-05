@@ -55,9 +55,9 @@ namespace Game.Managers
 
         private IEnumerator ReturnToMainMenu()
         {
-            yield return new WaitForSeconds(3.0f);
             CardManager.Instance.ClearList();
             OxygenController.Instance.ResetOxygenAmount();
+            yield return new WaitForSeconds(3.0f);
             LevelManager.Instance.ResetDayCount();
             this.LoadSceneByIndex(0);
         }

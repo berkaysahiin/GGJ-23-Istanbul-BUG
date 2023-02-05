@@ -16,7 +16,7 @@ namespace Game.Enemy
         private WaveManager _waveManager;
         private DayCycleController _dayCycleController;
         private int _dayCount = 0;
-        private float nightLength => 3;
+        private float nightLength => 10;
         private float sinceNight;
         private CardRendererUI _cardRenderer;
 

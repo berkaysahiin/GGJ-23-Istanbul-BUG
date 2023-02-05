@@ -42,7 +42,7 @@ namespace Game.Enemy
             for(int i = 0; i < amount; i++)
             {
                 var duration = 7;
-                var enemyCount = 3;
+                var enemyCount = 2;
                 this.waves.Push(
                     new Wave(duration, enemyCount)
                 );
