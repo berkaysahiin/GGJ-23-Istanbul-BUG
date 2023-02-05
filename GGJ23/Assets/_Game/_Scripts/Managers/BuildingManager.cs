@@ -68,6 +68,12 @@ namespace Game.Managers
         {
             CameraManager.Instance.ShakeCamera(0.8f, 0.3f, 10, 20);
             _oxygenController.DecreaseOxygenAmount(_holdingCardSo.oxygenCount);
+            if (_holdingCardSo.card.GetComponent<Poision>() != null)
+            {
+                
+                _holdingCardSo.card.GetComponent<Poision>().PlayVFX(_pos);
+            }
+            
             _pendingObject = null;
         }
         

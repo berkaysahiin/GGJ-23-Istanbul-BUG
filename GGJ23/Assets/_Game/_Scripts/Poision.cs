@@ -20,6 +20,11 @@ namespace Game.Enemy
             GameObject.Instantiate(vfx, position, Quaternion.identity);
         }
 
+        public void TurnOffPoision()
+        {
+            enabled = false;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag.Equals("Enemy"))

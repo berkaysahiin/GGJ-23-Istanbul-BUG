@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PoisonCard
   m_EditorClassIdentifier: 
   cardName: Poison
-  cardSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  cardSprite: {fileID: 21300000, guid: 0b5f193f5e3f82047a1079879d83b0dc, type: 3}
   card: {fileID: 8319184286330844023, guid: 52097ac60f33a47f68265e2a7a34fc4b, type: 3}
   description: 'Poison Card
 
