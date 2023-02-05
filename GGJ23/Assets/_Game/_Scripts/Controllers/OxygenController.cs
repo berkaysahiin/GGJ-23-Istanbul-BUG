@@ -39,7 +39,7 @@ namespace Game.Controllers
 
         public void DecreaseOxygenAmount(float decreaseValue)
         {
-            _oxygenAmount -= decreaseValue * Time.deltaTime;
+            _oxygenAmount -= decreaseValue;
         }
     }
 }
