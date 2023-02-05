@@ -116,5 +116,5 @@ MonoBehaviour:
   initialAnimationDuration: 0.2
   rootVfx: {fileID: 8787987436827556619, guid: 982b627172679094da2c0bc44bc30603, type: 3}
   spawnedVfx: {fileID: 0}
-  oxygenProduceFactor: 1
+  oxygenProduceFactor: 0.05
   _health: 100

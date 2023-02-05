@@ -20,6 +20,11 @@ namespace Game.Controllers
             SetupInstance();
         }
 
+        private void Start()
+        {
+            _oxygenAmount += 40;
+        }
+
         public void ResetOxygenAmount()
         {
             _oxygenAmount = 0;

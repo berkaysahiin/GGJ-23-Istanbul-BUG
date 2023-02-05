@@ -11,7 +11,6 @@ namespace Game.Managers
 {
     public class GameManager : SingletonMonoBehaviour<GameManager>
     {
-        private GameOverPanel gameOverPanel;
         private OxygenController _oxygenController;
 
         private bool _gameOver;
@@ -24,15 +23,9 @@ namespace Game.Managers
 
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                gameOverPanel = FindObjectOfType<GameOverPanel>();
                 _oxygenController = FindObjectOfType<OxygenController>();
                 Debug.Log("AA:" + _oxygenController);
             }
-        }
-
-        private void Update()
-        {
-            if(gameOverPanel == null) return;   
         }
 
         public void LoadSelfScene()
@@ -58,6 +51,7 @@ namespace Game.Managers
         {
             StartCoroutine(ReturnToMainMenu());
         }
+
 
         private IEnumerator ReturnToMainMenu()
         {
