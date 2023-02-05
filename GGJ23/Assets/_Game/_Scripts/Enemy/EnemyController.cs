@@ -45,7 +45,7 @@ namespace Game.Enemy
     {
       var target = GetClosestTree();
       if(target == null) {
-        GameManager.Instance.LoseGame();
+        // GameManager.Instance.LoseGame();
       }
 
       if (LevelManager.Instance.isNight)

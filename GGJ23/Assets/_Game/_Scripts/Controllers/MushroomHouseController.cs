@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Controllers
 {
-    public class MushroomHouseController : MonoBehaviour
+    public class MushroomHouseController : MonoBehaviour, IEntityController
     {
         [SerializeField] private float health;
         [SerializeField] private LittleMushroomController mushroom;

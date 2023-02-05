@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Game.Managers;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Game.UIs
@@ -35,6 +36,14 @@ namespace Game.UIs
                 SetupCardDeck();
                 SetupCardRotations(CardManager.Instance.Cards.Count - 1);
                 SetupCardPositions(CardManager.Instance.Cards.Count - 1);
+            }
+
+            if (GameManager.Instance.GameOver)
+            {
+                foreach (var button in cardDetails.cardButtons)
+                {
+                    button.GetComponent<Button>().interactable = false;
+                }
             }
         }
 

@@ -61,5 +61,10 @@ namespace Game.Enemy
             _dayCycleController = DayCycleController.New((_dayCount + 1) * 2);
             _dayCount++;
         }
+
+        public void ResetDayCount()
+        {
+            _dayCount = 0;
+        }
     }
 }

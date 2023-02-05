@@ -24,7 +24,6 @@ namespace Game.Controllers
             base.Update();
             if (spawnedVfx == null)
             {
-                GameManager.Instance.LoseGame();
                 return;
             }
             spawnedVfx.GetComponentsInChildren<Transform>()[2].transform.position = transform.position;

@@ -34,5 +34,6 @@ namespace Game.Enemy
                 EnemyFactory.Instance.InstantiateEnemy(EnemyType.Oduncu, location);
             }
         }
+
     }
 }

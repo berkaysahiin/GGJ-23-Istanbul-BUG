@@ -15,9 +15,9 @@ namespace Game
         {
             if (rootVfx == null)
             {
-                GameManager.Instance.LoseGame();
                 return;
             }
+            
             spawnedVfx = Instantiate(rootVfx, FindObjectOfType<MainTreeController>().transform.position + new Vector3(0, 0, 0), Quaternion.identity);
 
         }

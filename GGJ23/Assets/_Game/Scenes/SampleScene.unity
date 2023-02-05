@@ -504,14 +504,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.27811757, y: -0, z: -0, w: 0.9605471}
-  m_LocalPosition: {x: 0, y: 12.24, z: -8.85}
+  m_LocalRotation: {x: 0.42591304, y: -0, z: -0, w: 0.9047642}
+  m_LocalPosition: {x: 0, y: 37.26, z: -30.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1902887293}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.296, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50.417, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,13 +671,14 @@ GameObject:
   - component: {fileID: 410415039}
   - component: {fileID: 410415041}
   - component: {fileID: 410415040}
+  - component: {fileID: 410415042}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &410415039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -737,6 +738,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410415038}
   m_CullTransparentMesh: 1
+--- !u!114 &410415042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410415038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f1a98924a7b3e4bbf0eeab6c45186f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &511688358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,7 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43160ffc159927a4a9e0e5011dcef34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 410415038}
 --- !u!1001 &967112048
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MushroomCard
   m_EditorClassIdentifier: 
   cardName: Mushroom
-  cardSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  cardSprite: {fileID: 21300000, guid: de209e9091c6acf4299bfc9cbc923775, type: 3}
   card: {fileID: 740239752381887255, guid: 113b7d52664456644a05b47e28d6ee04, type: 3}
   description: Mushroom House
   oxygenCount: 10

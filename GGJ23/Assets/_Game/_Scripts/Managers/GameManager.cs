@@ -1,17 +1,42 @@
+using System;
 using Game.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Game.Controllers;
+using Game.Enemy;
+using Game.UIs;
 
 namespace Game.Managers
 {
     public class GameManager : SingletonMonoBehaviour<GameManager>
     {
-        [SerializeField] private GameObject gameOverPanel;
+        private GameOverPanel gameOverPanel;
+        private OxygenController _oxygenController;
+
+        private bool _gameOver;
+        public bool GameOver => _gameOver;
         private void Awake()
         {
             SetupInstance();
+
+            Debug.Log("BUILD INDEX: " + SceneManager.GetActiveScene().buildIndex);
+
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                gameOverPanel = FindObjectOfType<GameOverPanel>();
+                _oxygenController = FindObjectOfType<OxygenController>();
+                Debug.Log("AA:" + _oxygenController);
+                gameOverPanel.gameObject.SetActive(false);
+            }
         }
+
+        private void Update()
+        {
+            if(gameOverPanel == null) return;   
+            Debug.Log("Game Over Panel: " + gameOverPanel.gameObject);
+        }
+
         public void LoadSelfScene()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -23,19 +48,33 @@ namespace Game.Managers
         public void LoadSceneByIndex(int sceneIndex)
         {
             SceneManager.LoadScene(sceneIndex);
+            _gameOver = false;
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
 
         public void LoseGame()
         {
-            if (gameOverPanel == null) return;
             StartCoroutine(ReturnToMainMenu());
         }
 
         private IEnumerator ReturnToMainMenu()
         {
-            gameOverPanel.SetActive(true);
+            // FinishGame();
             yield return new WaitForSeconds(3);
+            
             this.LoadSceneByIndex(0);
+            LevelManager.Instance.ResetDayCount();
+            
+        }
+
+        private void FinishGame()
+        {
+            _gameOver = true;
+            gameOverPanel.gameObject.SetActive(true);
         }
     }
 }

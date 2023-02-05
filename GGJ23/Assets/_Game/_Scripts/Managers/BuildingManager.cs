@@ -80,6 +80,11 @@ namespace Game.Managers
         {
             _holdingCardSo = card;
             _pendingObject = Instantiate(card.card, _pos, Quaternion.identity);
+            
+            if (_pendingObject.gameObject.GetComponent<IEntityController>() != null)
+            {
+                Debug.Log("TESTTT");    
+            }
         }
     }
 }
