@@ -15,9 +15,10 @@ namespace Game.Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            var enemy = other.GetComponent<EnemyController>();
-            if(enemy is null) return;
-            enemy.TakeDamage(damage);
+            if (other.gameObject.tag.Equals("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            }
         }
     }
 }

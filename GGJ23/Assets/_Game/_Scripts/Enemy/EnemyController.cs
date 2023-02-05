@@ -43,6 +43,11 @@ namespace Game.Enemy
 
     public void Update()
     {
+      if (IsDead)
+      {
+        Destroy(this.gameObject);
+        return;
+      }
       var target = GetClosestTree();
       if(target == null) {
         // GameManager.Instance.LoseGame();
@@ -58,7 +63,6 @@ namespace Game.Enemy
       }
       
       if(LevelManager.Instance.isNight) return;
-      if(IsDead) Destroy(this.gameObject);
       
       transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
       try

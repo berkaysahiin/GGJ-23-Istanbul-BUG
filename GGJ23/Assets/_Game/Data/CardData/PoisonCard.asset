@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22b13ba93b05d5b41abbef31cd5b4f7f, type: 3}
-  m_Name: TestCard
+  m_Name: PoisonCard
   m_EditorClassIdentifier: 
-  cardName: Test Card
+  cardName: Poison
   cardSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  card: {fileID: 240620742113371932, guid: 19a930d27714aa848bd87d832f43980f, type: 3}
-  description: Test Card
+  card: {fileID: 8319184286330844023, guid: 52097ac60f33a47f68265e2a7a34fc4b, type: 3}
+  description: 'Poison Card
+
+'
   oxygenCount: 5
   spawnOffset: {x: 0, y: 0.5, z: 0}

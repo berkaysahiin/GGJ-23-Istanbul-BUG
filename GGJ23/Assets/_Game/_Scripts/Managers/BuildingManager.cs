@@ -1,5 +1,6 @@
 using System;
 using Game.Controllers;
+using Game.Enemy;
 using Game.ScriptableObjects;
 using Game.UIs;
 using Game.Utils;
@@ -44,7 +45,8 @@ namespace Game.Managers
             if (Physics.Raycast(ray, out _hit, layer))
             {
                 if (_hit.transform.gameObject.GetComponent<BaseTreeController>() != null ||
-                    _hit.transform.gameObject.GetComponent<MushroomHouseController>() != null)
+                    _hit.transform.gameObject.GetComponent<MushroomHouseController>() != null || 
+                    _hit.transform.gameObject.GetComponent<Poision>() != null )
                 {
                     return;
                 }
