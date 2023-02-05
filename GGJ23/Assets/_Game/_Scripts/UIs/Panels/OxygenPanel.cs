@@ -22,7 +22,7 @@ namespace Game.UIs
 
         private void SetOxygenText()
         {
-            _oxygenText.text = Convert.ToInt32(OxygenController.OxygenAmount).ToString();
+            _oxygenText.text =  "O2: " + Convert.ToInt32(OxygenController.OxygenAmount).ToString();
         }
     }
 }

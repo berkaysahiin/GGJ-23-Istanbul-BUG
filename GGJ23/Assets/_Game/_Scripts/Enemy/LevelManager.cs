@@ -19,6 +19,8 @@ namespace Game.Enemy
         private CardRendererUI _cardRenderer;
 
         [SerializeField] Light light;
+        [SerializeField] private GameObject dayLight;
+        [SerializeField] private GameObject nightLight;
 
         private void Awake()
         {
@@ -41,11 +43,15 @@ namespace Game.Enemy
                 if(sinceNight > nightLength) {
                     NewDay();
                 }
-                light.intensity = 0.20f;
+
+                dayLight.SetActive(false);
+                nightLight.SetActive(true);
             }
 
             if(isDay) {
-                light.intensity = 1;
+                dayLight.SetActive(true);
+                nightLight.SetActive(false);
+
                 sinceNight = 0;
             }
         }

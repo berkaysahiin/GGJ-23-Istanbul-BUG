@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMovement:
-    cardMovement: 100
-    cardDuration: 3
+    cardMovement: 40
+    cardDuration: 0.8
   cardScriptableObject: {fileID: 11400000, guid: 75fb03e20c4c0e54db36f2c0d06b8262,
     type: 2}
