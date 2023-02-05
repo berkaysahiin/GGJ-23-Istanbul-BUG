@@ -1,4 +1,4 @@
-# GGJ-23 İstanbul @BUG
+# GGJ-23 Istanbul @BUG
 
 Theme: Root
 
