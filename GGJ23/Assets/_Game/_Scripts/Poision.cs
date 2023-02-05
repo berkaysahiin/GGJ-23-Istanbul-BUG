@@ -7,26 +7,17 @@ namespace Game.Enemy
         [SerializeField] private float radius;
         [SerializeField] private float damage;
         [SerializeField] private float lifeTime;
-        [SerializeField] private float repeatRate;
 
         private void Awake() 
         {
-            InvokeRepeating(nameof(Damage), 0, repeatRate);
             Destroy(this.gameObject, lifeTime);
         }
 
-        private void Damage()
+        private void OnTriggerEnter(Collider other)
         {
-            var colliders = Physics.OverlapSphere(this.transform.position, radius);
-
-            foreach(var collider in colliders)
-            {
-                var enemy = collider.GetComponent<EnemyController>();
-                if(enemy is null) continue;
-
-                print("enemy has taken " + damage + " damage");
-                enemy.TakeDamage(damage);
-            }
+            var enemy = other.GetComponent<EnemyController>();
+            if(enemy is null) return;
+            enemy.TakeDamage(damage);
         }
     }
 }
