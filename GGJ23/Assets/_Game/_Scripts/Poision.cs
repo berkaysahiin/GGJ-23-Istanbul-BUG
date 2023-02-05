@@ -15,9 +15,9 @@ namespace Game.Enemy
             Destroy(this.gameObject, lifeTime);
         }
 
-        public void PlayVFX()
+        public void PlayVFX(Vector3 position)
         {
-            GameObject.Instantiate(vfx, this.transform.position, Quaternion.identity);
+            GameObject.Instantiate(vfx, position, Quaternion.identity);
         }
 
         private void OnTriggerEnter(Collider other)
